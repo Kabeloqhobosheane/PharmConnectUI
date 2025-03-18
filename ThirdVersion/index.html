@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PharmConnect - Login & Register</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="container-fluid bg-cream">
+    <div class="row w-100 d-flex justify-content-center align-items-center">
+      <!-- Floating Card with Two Sections -->
+      <div class="card shadow-lg floating-card">
+        <div class="row no-gutters">
+          <!-- Left Section with Background Image and Blur -->
+          <div class="col-md-6 left-section">
+            <div class="overlay"></div>
+            <div class="content text-center">
+              <h1 class="text-white">Welcome to PharmConnect</h1>
+              <p class="text-white">Connect with ease and stay informed about the latest medications.</p>
+              <p class="text-white">Login to your account or sign up for a new one!</p>
+            </div>
+          </div>
+
+          <!-- Right Section with Forms -->
+          <div class="col-md-6 right-section">
+            <div class="form-container">
+              <!-- Logo at the top of the forms -->
+              <img src="logo.png" alt="PharmConnect Logo" class="logo mb-4">
+              
+              <!-- Pills Navigation -->
+              <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true">Sign In</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-register-tab" data-bs-toggle="pill" data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register" aria-selected="false">Sign Up</button>
+                </li>
+              </ul>
+
+              <!-- Pills Content -->
+              <div class="tab-content" id="pills-tabContent">
+                <!-- Login Form -->
+                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                  <div class="card">
+                    <div class="card-body">
+                      <h2 class="card-title mb-4">Sign In</h2>
+                      <form>
+                        <div class="mb-3">
+                          <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                          <input type="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Register Form -->
+                <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
+                  <div class="card">
+                    <div class="card-body">
+                      <h2 class="card-title mb-4">Sign Up</h2>
+                      <form>
+                        <div class="mb-3">
+                          <input type="text" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                          <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                          <input type="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="mb-3">
+                          <input type="password" class="form-control" placeholder="Confirm Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Sign Up</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (for Pills functionality) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

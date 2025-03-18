@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+.bg-cream {
+    background-color: #d2f1d9;
+    min-height: 100vh;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.card-body {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+/* Left Section */
+.left-section {
+    background-image: url('bg.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.left-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for better readability */
+    filter: blur(10px);
+}
+
+.left-section .content {
+    z-index: 1;
+    position: relative;
+}
+
+/* Right Section */
+.right-section {
+    background-color: #ffffff;
+    padding: 40px;
+    height: 100%;
+}
+
+/* Logo */
+.logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    opacity: 0.9;
+}
+
+/* Social Media Icons */
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    opacity: 0.7;
+}
+
+/* Pills Navigation */
+.nav-pills .nav-link {
+    background-color: #e9ecef;
+    color: #495057;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #dee2e6;
+}

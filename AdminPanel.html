@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PharmConnect - Admin Panel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+ <!-- Logo -->
+<div class="logo-container">
+    <img src="logo.png" alt="PharmConnect Logo" class="logo">
+  </div>
+  
+
+  <!-- Sidebar -->
+<div class="sidebar">
+    <!-- Profile Section -->
+    <div class="profile">
+      <img src="logo.png" alt="Profile Picture" class="profile-pic">
+      <div class="profile-info">
+        <h5>Admin User</h5>
+        <p>admin@pharmconnect.com</p>
+      </div>
+    </div>
+  
+    <!-- Navigation Links -->
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">
+          <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-clipboard-list"></i> Pharmacies
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-pills"></i> Medications
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-users"></i> Users
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-cog"></i> Settings
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+
+    
+ <!-- Main Content -->
+<div class="main-content">
+    <div class="container">
+      <h2 class="mb-4">Admin Dashboard</h2>
+  
+      <!-- Stats Cards -->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card bg-success text-white mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Pharmacies</h5>
+              <p class="card-text">Manage registered pharmacies.</p>
+              <a href="#" class="btn btn-light">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card bg-primary text-white mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Medications</h5>
+              <p class="card-text">Manage medication inventory.</p>
+              <a href="#" class="btn btn-light">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card bg-white text-dark mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Users Logged In</h5>
+              <p class="card-text"><strong>42</strong> users currently active.</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Notifications -->
+      <div class="alert alert-warning" role="alert">
+        <i class="fas fa-exclamation-circle"></i>
+        <strong>3 Pharmacies</strong> are waiting for approval.
+        <a href="#" class="alert-link">Review now</a>.
+      </div>
+  
+      <!-- Charts -->
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">System Usability (Last 7 Days)</h5>
+              <canvas id="usabilityChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">User Activity (Last 7 Days)</h5>
+              <canvas id="activityChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Search and Filter Section -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Search and Filter</h5>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search pharmacies...">
+                    <button class="btn btn-primary" type="button">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <select class="form-select">
+                      <option selected>Filter by Status</option>
+                      <option value="1">Approved</option>
+                      <option value="2">Pending</option>
+                      <option value="3">Rejected</option>
+                    </select>
+                    <button class="btn btn-success" type="button">
+                      <i class="fas fa-filter"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Registered Pharmacies Table -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Registered Pharmacies</h5>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Pharmacy Name</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Pharmacy A</td>
+                    <td>Maseru</td>
+                    <td><span class="badge bg-success">Approved</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-primary">Edit</button>
+                      <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Pharmacy B</td>
+                    <td>Leribe</td>
+                    <td><span class="badge bg-warning">Pending</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-primary">Edit</button>
+                      <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Pharmacy C</td>
+                    <td>Mafeteng</td>
+                    <td><span class="badge bg-success">Approved</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-primary">Edit</button>
+                      <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js Script -->
+  <script>
+    // System Usability Chart
+    const usabilityCtx = document.getElementById('usabilityChart').getContext('2d');
+    new Chart(usabilityCtx, {
+      type: 'line',
+      data: {
+        labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+        datasets: [{
+          label: 'System Usability',
+          data: [65, 59, 80, 81, 56, 55, 40],
+          borderColor: '#007bff',
+          fill: false,
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          }
+        }
+      }
+    });
+
+    // User Activity Chart
+    const activityCtx = document.getElementById('activityChart').getContext('2d');
+    new Chart(activityCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+        datasets: [{
+          label: 'User Activity',
+          data: [12, 19, 3, 5, 2, 3, 10],
+          backgroundColor: '#28a745',
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
