@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PharmConnect - Share Location</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <!-- Location Sharing Form -->
+        <div class="card mt-5">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Share Location</h2>
+            <form id="locationForm">
+              <!-- Address Input -->
+              <div class="mb-3">
+                <label for="address" class="form-label">Pharmacy Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Enter pharmacy address" required>
+              </div>
+
+              <!-- Latitude and Longitude Inputs -->
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="latitude" class="form-label">Latitude</label>
+                  <input type="text" class="form-control" id="latitude" placeholder="Enter latitude" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label for="longitude" class="form-label">Longitude</label>
+                  <input type="text" class="form-control" id="longitude" placeholder="Enter longitude" readonly>
+                </div>
+              </div>
+
+              <!-- Map Display -->
+              <div id="map" class="mb-3"></div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary w-100">
+                <i class="fas fa-share-alt"></i> Share Location
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Google Maps -->
+  <script>
+    let map;
+    let marker;
+
+    // Initialize the map
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -29.3100, lng: 27.4800 }, // Default center (Lesotho)
+        zoom: 8,
+      });
+
+      // Add a marker
+      marker = new google.maps.Marker({
+        position: { lat: -29.3100, lng: 27.4800 },
+        map: map,
+        draggable: true, // Allow dragging the marker
+      });
+
+      // Update latitude and longitude when marker is dragged
+      google.maps.event.addListener(marker, 'dragend', function () {
+        const latLng = marker.getPosition();
+        document.getElementById('latitude').value = latLng.lat().toFixed(6);
+        document.getElementById('longitude').value = latLng.lng().toFixed(6);
+      });
+
+      // Autocomplete for address input
+      const autocomplete = new google.maps.places.Autocomplete(document.getElementById('address'));
+      autocomplete.addListener('place_changed', function () {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) {
+          alert('No details available for this address.');
+          return;
+        }
+
+        // Update map and marker
+        map.setCenter(place.geometry.location);
+        marker.setPosition(place.geometry.location);
+
+        // Update latitude and longitude
+        document.getElementById('latitude').value = place.geometry.location.lat().toFixed(6);
+        document.getElementById('longitude').value = place.geometry.location.lng().toFixed(6);
+      });
+    }
+
+    // Handle form submission
+    document.getElementById('locationForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const address = document.getElementById('address').value;
+      const latitude = document.getElementById('latitude').value;
+      const longitude = document.getElementById('longitude').value;
+
+      // Simulate sharing the location (you can replace this with an API call)
+      alert(`Location shared!\nAddress: ${address}\nLatitude: ${latitude}\nLongitude: ${longitude}`);
+    });
+  </script>
+</body>
+</html>

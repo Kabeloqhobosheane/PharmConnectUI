@@ -1,0 +1,36 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+  
+  /* Form Styles */
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .input-group-text {
+    background-color: #e9ecef;
+    border: none;
+  }
+  
+  /* Center the form title */
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
